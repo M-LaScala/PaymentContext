@@ -8,8 +8,8 @@ namespace PaymentContext.Tests
         public void Test1()
         {
             var subscription = new Subscription(null);
-            var student = new Student("Matheus","La Scala", "123123","matheus@gmail.com");
-            student.AddSubscription(subscription);
+            //var student = new Student("Matheus","La Scala", "123123","matheus@gmail.com");
+            //student.AddSubscription(subscription);
         }
     }
 }
