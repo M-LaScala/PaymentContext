@@ -1,4 +1,5 @@
 ﻿using PaymentContext.Shared.ValueObjects;
+using PaymentContext.Domain.Contracts;
 
 namespace PaymentContext.Domain.ValueObjects
 {
@@ -7,6 +8,7 @@ namespace PaymentContext.Domain.ValueObjects
         public Email(string address)
         {
             Address = address;
+            AddNotifications(new CreateEmailContract(this));
         }
 
         public string Address { get; private set; }

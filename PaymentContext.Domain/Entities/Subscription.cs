@@ -1,6 +1,8 @@
-﻿namespace PaymentContext.Domain.Entities
+﻿using PaymentContext.Shared.Entities;
+
+namespace PaymentContext.Domain.Entities
 {
-    public class Subscription
+    public class Subscription : Entity
     {
         private IList<Payment> _payments;
         public Subscription(DateTime? expireDate)

@@ -1,5 +1,6 @@
 ﻿using PaymentContext.Shared.ValueObjects;
 using PaymentContext.Domain.Enums;
+using PaymentContext.Domain.Contracts;
 
 namespace PaymentContext.Domain.ValueObjects
 {
@@ -9,6 +10,7 @@ namespace PaymentContext.Domain.ValueObjects
         {
             Number = number;
             Type = type;
+            AddNotifications(new CreateDocumentContract(this));
         }
         public string Number { get; private set; }
         public EDocumentType Type { get; private set; }

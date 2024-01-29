@@ -2,7 +2,7 @@
 {
     public enum EDocumentType
     {
-        CFP = 1,
+        CPF = 1,
         CNPJ = 2
     }
 }
