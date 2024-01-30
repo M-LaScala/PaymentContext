@@ -8,7 +8,7 @@ namespace PaymentContext.Domain.Contracts
         public CreatePaymentContract(Payment payment)
         {
             Requires()
-                .IsGreaterThan(0, payment.Total, "Payment.Total", "O total não pode ser zero")
+                .IsLowerOrEqualsThan(0, payment.Total, "Payment.Total", "O total não pode ser zero")
                 .IsGreaterOrEqualsThan(payment.Total, payment.TotalPaid, "Payment.TotalPaid", "O valor pago é menor que o valor do pagamento");
         }
     }
