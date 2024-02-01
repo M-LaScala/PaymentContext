@@ -18,9 +18,10 @@ namespace PaymentContext.Domain.Handlers
         private readonly IStudentRepository _repository;
         private readonly IEmailService _emailService;
 
-        public SubscriptionHandler(IStudentRepository repository)
+        public SubscriptionHandler(IStudentRepository repository, IEmailService emailService)
         {
             _repository = repository;    
+            _emailService = emailService;
         }
 
         public ICommandResult Handle(CreateBoletoSubscriptionCommand command)
@@ -62,6 +63,12 @@ namespace PaymentContext.Domain.Handlers
 
             // Agrupar as validações
             AddNotifications(name, document, email, address, student, subscription, payment);
+
+            // Checar as notificações
+            if (!IsValid)
+            {
+                return new CommandResult(false, "Não foi possivel realizar sua assinatura");
+            }
 
             // Salar as Informações
             _repository.CreateSubscription(student);
@@ -113,6 +120,12 @@ namespace PaymentContext.Domain.Handlers
             // Agrupar as validações
             AddNotifications(name, document, email, address, student, subscription, payment);
 
+            // Checar as notificações
+            if (!IsValid)
+            {
+                return new CommandResult(false, "Não foi possivel realizar sua assinatura");
+            }
+
             // Salar as Informações
             _repository.CreateSubscription(student);
 
@@ -162,6 +175,12 @@ namespace PaymentContext.Domain.Handlers
 
             // Agrupar as validações
             AddNotifications(name, document, email, address, student, subscription, payment);
+
+            // Checar as notificações
+            if (!IsValid)
+            {
+                return new CommandResult(false, "Não foi possivel realizar sua assinatura");
+            }
 
             // Salar as Informações
             _repository.CreateSubscription(student);
